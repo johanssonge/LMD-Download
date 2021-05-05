@@ -9,14 +9,15 @@ import pdb
 
 
 if __name__ == '__main__':
-    startdate = "2018 05 01"
-    enddate = "2018 09 30"
-    mainSaveDir = "/home/erikj/Projects/Data/Ostia"
+    startdate = "2018 04 01"
+    enddate = "2018 10 31"
+    mainSaveDir = "/home/erikj/Projects/Data/Ostia"#"/scratch/erikj/Data/Ostia"
     mainWebAdress = "https://podaac-tools.jpl.nasa.gov/drive/files/allData/ghrsst/data/L4/GLOB/UKMO/OSTIA"
     user="smhi_erik"
     password="@AItE8W1EwHte82XFdK"
 
     datum = datetime.datetime.strptime(startdate, "%Y %m %d")
+    stoppdatum = datetime.datetime.strptime(enddate, "%Y %m %d")
     c1 = 0
     c2 = 0
     run=True
@@ -38,7 +39,7 @@ if __name__ == '__main__':
             print("Unpack data")
             bz2unzip = "bzip2 -d %s" %bz2file
             c2 = os.system(bz2unzip)
-        if datum == datetime.datetime.strptime(enddate, "%Y %m %d"):
+        if datum >= stoppdatum:
             run=False
         
           
