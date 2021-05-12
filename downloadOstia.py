@@ -22,9 +22,9 @@ if __name__ == '__main__':
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument("-y","--year", type=int, default=2018,  
-                        help="Year. Default=2018")
+                        help="The Year to download. Default=2018")
     parser.add_argument("-n","--nwc", action="store_false", default=True, 
-                        help="Create links prepared fot NWC-SAF. Default=True (i.e. create links)")
+                        help="Create links prepared for NWC-SAF. Default=True (i.e. create links)")
     args = parser.parse_args()
     
     #: Date for first and last download
@@ -33,12 +33,13 @@ if __name__ == '__main__':
 
     #: If on icare save data on scratch
     #: else save on home
-    if os.environ['HOSTNAME'].split('.')[1] == 'icare':
+    if ('HOSTNAME' in os.environ.keys()) and \
+        (os.environ['HOSTNAME'].split('.')[1] == 'icare'):
         baseDir = "/scratch/%s" %os.environ['USER']
     else:
         baseDir = os.environ['HOME']
     mainSaveDir = "%s/Data/Ostia" %baseDir
-    
+
     #: Main web adress from where to get data    
     mainWebAdress = "https://podaac-tools.jpl.nasa.gov/drive/files/allData/ghrsst/data/L4/GLOB/UKMO/OSTIA"
     #: user name
