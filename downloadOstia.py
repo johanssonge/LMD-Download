@@ -5,8 +5,8 @@ Created on 2021-02-09
 
 Copyright (c) 2021 Erik Johansson
 
-@author:     Erik Johansson
-@contact:    <erik.johansson@smhi.se>
+Author(s):
+Erik Johansson <erik.johansson@lmd.ipsl.fr>
 '''
 
 '''
